@@ -9,6 +9,56 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/character"
+        android:layout_width="180dp"
+        android:layout_height="330dp"
+        android:src="@drawable/ic_character_default"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="30dp" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남은 시간"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="121"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="점수"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="score"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ImageView
         android:id="@+id/carrot1"
         android:layout_width="80dp"
         android:layout_height="40dp"
@@ -131,16 +181,8 @@
         android:id="@+id/frame_burner"
         android:layout_width="300dp"
         android:layout_height="190dp"
-        android:background="@color/white"
         android:layout_marginLeft="430dp"
         android:layout_marginTop="110dp"/>
 
-    <FrameLayout
-        android:id="@+id/character"
-        android:layout_width="195dp"
-        android:layout_height="330dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginLeft="50dp"
-        android:background="@drawable/ic_character_default" />
 
 </FrameLayout>
