@@ -1,4 +1,7 @@
 package com.example.myrc_04.model
 
-data class Rank (val img: String, val name: String, val score: String) {
-}
+data class Rank (
+    var img: Int,
+    var name: String,
+    var score: Int ?= null)
+

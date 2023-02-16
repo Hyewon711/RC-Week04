@@ -3,24 +3,26 @@ package com.example.myrc_04
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.*
+import android.text.TextUtils.replace
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myrc_04.activity.GameOverActivity
-import com.example.myrc_04.activity.ScoreActivity
 import com.example.myrc_04.databinding.ActivityMainBinding
+import com.example.myrc_04.fragment.BottomSheetFragment
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     val TAG: String = "로그"
     private lateinit var binding: ActivityMainBinding
+    private val bottomSheetFragment = BottomSheetFragment()
+    var bundle = Bundle()
 
     // 좌표 관련 변수
     private var startX = 0f
     private var startY = 0f
 
-//     카운트 타이머 선언
+    //     카운트 타이머 선언
     val mTimer = Timer()
 
     // 당근 굽기 카운트
@@ -52,12 +54,6 @@ class MainActivity : AppCompatActivity() {
         fullScreen()
         // 타이머
         timerTask()
-
-        for(i in 0 until 10) {
-
-
-
-        }
 
         // 1. carrot Touch Event
         binding.carrot1.setOnTouchListener { view: View, event: MotionEvent ->
@@ -154,6 +150,10 @@ class MainActivity : AppCompatActivity() {
                     Log.d(TAG,"$currentTime")
                     if (currentTime <= 0) {
                         mTimer.cancel()
+                        bottomSheetFragment.setCancelable(false)
+                        bundle.putInt("score", score)
+                        bottomSheetFragment.arguments = bundle
+                        bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
                         Log.d(TAG,"타이머 종료")
                     }
                     binding.time.text = currentTime.toString()
@@ -242,29 +242,30 @@ class MainActivity : AppCompatActivity() {
                         binding.life2.visibility = View.GONE
                         binding.character.setImageResource(R.drawable.ic_character_bad)
                         life--
-                        val intent = Intent(this, GameOverActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        bottomSheetFragment.setCancelable(false)
+                        bundle.putInt("score", score)
+                        bottomSheetFragment.arguments = bundle
+                        bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
                     }
                 }
             }
         }
     }
 
-    /* 단순 카운트다운 */
-    private fun createCountDownTimer(initialMills: Long) =
-        object : CountDownTimer(initialMills, 1000){
-            // 121초 카운트
-            override fun onTick(millisUntilFinished: Long) {
-                binding.time.text = (millisUntilFinished/1000).toString()
-            }
-            // 끝난 경우
-            override fun onFinish() {
-                val intent = Intent(applicationContext, ScoreActivity::class.java)
-                    startActivity(intent)
-                    finish()
-            }
-        }
+//    /* 단순 카운트다운 */
+//    private fun createCountDownTimer(initialMills: Long) =
+//        object : CountDownTimer(initialMills, 1000){
+//            // 121초 카운트
+//            override fun onTick(millisUntilFinished: Long) {
+//                binding.time.text = (millisUntilFinished/1000).toString()
+//            }
+//            // 끝난 경우
+//            override fun onFinish() {
+//                val intent = Intent(applicationContext, ScoreActivity::class.java)
+//                startActivity(intent)
+//                finish()
+//            }
+//        }
 
     override fun onResume() {
         Log.d(TAG, "MainActivity - onResume() called")
