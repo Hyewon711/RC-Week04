@@ -16,19 +16,30 @@ class RecordAdapter : RecyclerView.Adapter<RecordAdapter.RecordViewHolder> () {
     var dataSet = ArrayList<Rank>()
 
     inner class RecordViewHolder(private val binding: ItemRecordBinding): RecyclerView.ViewHolder(binding.root) {
-        val imageView = binding.rankImg
-        val nameTextView = binding.rankName
-        val scoreTextView = binding.rankScore
-
+        private val imageView = binding.rankImg
+        private val nameTextView = binding.rankName
+        private val scoreTextView = binding.rankScore
+        private var imgNumber = 0
 
         //뷰와 데이터를 연결
         fun bind(rank: Rank) {
             nameTextView.text = rank.name
             scoreTextView.text = rank.score.toString()
 
+            when (rank.img) {
+                1 -> imgNumber = R.drawable.ic_record_img1_select
+                2 -> imgNumber = R.drawable.ic_record_img2_select
+                3 -> imgNumber = R.drawable.ic_record_img3_select
+                4 -> imgNumber = R.drawable.ic_record_img4_select
+                5 -> imgNumber = R.drawable.ic_record_img5_select
+                6 -> imgNumber = R.drawable.ic_record_img6_select
+                7 -> imgNumber = R.drawable.ic_record_img7_select
+                8 -> imgNumber = R.drawable.ic_record_img8_select
+            }
+
             Glide
                 .with(App.instance)
-                .load(rank.img)
+                .load(imgNumber)
                 .placeholder(R.drawable.ic_test_img)
                 .fallback(R.drawable.ic_test_img)
                 .into(imageView)
@@ -41,6 +52,7 @@ class RecordAdapter : RecyclerView.Adapter<RecordAdapter.RecordViewHolder> () {
     }
 
     override fun onBindViewHolder(holder: RecordViewHolder, position: Int) {
+        dataSet.sortBy{ it.score }
         // 데이터와 뷰를 묶음
         holder.bind(dataSet[position])
     }

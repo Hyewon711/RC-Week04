@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
+    android:id="@+id/frame_ly"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,43 +15,42 @@
         android:layout_height="330dp"
         android:src="@drawable/ic_character_default"
         android:adjustViewBounds="true"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="190dp"
         android:layout_marginLeft="30dp" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal">
 
-        <TextView
+        <ImageView
             android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="남은 시간"
-            android:textStyle="bold"/>
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_tv_time" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="11"
+            android:text="121"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
+        <ImageView
             android:id="@+id/tv_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="점수"
-            android:textStyle="bold"/>
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_tv_score" />
 
         <TextView
             android:id="@+id/score"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="score"
+            android:text="0"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -58,80 +58,81 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <ImageView
-        android:id="@+id/carrot1"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="100dp" />
-    <ImageView
-        android:id="@+id/carrot2"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="80dp" />
-    <ImageView
-        android:id="@+id/carrot3"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="180dp"
-        android:layout_marginTop="50dp" />
-    <ImageView
-        android:id="@+id/carrot4"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="100dp" />
-    <ImageView
-        android:id="@+id/carrot5"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="50dp" />
-    <ImageView
-        android:id="@+id/carrot6"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="270dp"
-        android:layout_marginTop="80dp" />
-    <ImageView
-        android:id="@+id/carrot7"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="50dp" />
-    <ImageView
-        android:id="@+id/carrot8"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="110dp" />
-    <ImageView
-        android:id="@+id/carrot9"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="60dp" />
-    <ImageView
-        android:id="@+id/carrot10"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_carrot_default_1"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="30dp" />
+        <ImageView
+            android:id="@+id/carrot1"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="110dp" />
+        <ImageView
+            android:id="@+id/carrot2"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="90dp" />
+        <ImageView
+            android:id="@+id/carrot3"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="60dp" />
+        <ImageView
+            android:id="@+id/carrot4"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="110dp" />
+        <ImageView
+            android:id="@+id/carrot5"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="60dp" />
+        <ImageView
+            android:id="@+id/carrot6"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="90dp" />
+        <ImageView
+            android:id="@+id/carrot7"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="60dp" />
+        <ImageView
+            android:id="@+id/carrot8"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="120dp" />
+        <ImageView
+            android:id="@+id/carrot9"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="70dp" />
+        <ImageView
+            android:id="@+id/carrot10"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_carrot_default_1"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="40dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
         <ImageView
             android:id="@+id/life1"
             android:layout_width="50dp"
@@ -139,6 +140,7 @@
             android:src="@drawable/ic_life_1"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/life2"/>
         <ImageView
@@ -146,34 +148,36 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_life_1"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toEndOf="@id/life1"/>
+            app:layout_constraintStart_toEndOf="@id/life1"
+            app:layout_constraintEnd_toStartOf="@id/life3"/>
         <ImageView
             android:id="@+id/life3"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_life_1"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toEndOf="@id/life2"/>
+            app:layout_constraintStart_toEndOf="@id/life2"
+            app:layout_constraintEnd_toStartOf="@id/life4"/>
         <ImageView
             android:id="@+id/life4"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_life_1"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toEndOf="@id/life3"/>
+            app:layout_constraintStart_toEndOf="@id/life3"
+            app:layout_constraintEnd_toStartOf="@id/life5"/>
         <ImageView
             android:id="@+id/life5"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_life_1"
-            android:layout_marginRight="230dp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/life4"
-            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

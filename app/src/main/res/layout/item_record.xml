@@ -4,13 +4,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="15dp"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:background="@drawable/ic_rv_illust">
 
     <ImageView
         android:id="@+id/rank_img"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
         android:src="@drawable/ic_record_img1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,6 +21,8 @@
         android:id="@+id/rank_name"
         android:text="닉네임"
         android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -30,9 +34,24 @@
         android:id="@+id/rank_score"
         android:text="점수"
         android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_rank_score"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_rank_score"
+        android:text="점"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

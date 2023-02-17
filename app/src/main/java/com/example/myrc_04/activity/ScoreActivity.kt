@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myrc_04.App
@@ -29,6 +30,9 @@ class ScoreActivity: AppCompatActivity() {
     private lateinit var binding: ActivityScoreBinding
     private lateinit var recordAdapter: RecordAdapter
     lateinit var prefHelper: PrefHelper
+    private var data: ArrayList<Rank> = ArrayList()
+    //뒤로가기 연속 클릭 대기 시간
+    var mBackWait:Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,6 +114,17 @@ class ScoreActivity: AppCompatActivity() {
             }
             Log.d("debug", "Data loaded")
         }
+    }
+
+    /* onBackPressed 메서드 */
+    override fun onBackPressed() {
+        // 뒤로가기 버튼 클릭
+        if (System.currentTimeMillis() - mBackWait >= 2000) {
+            Toast.makeText(this, "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+        } else {
+            finishAffinity() //액티비티 종료
+        }
+        mBackWait = System.currentTimeMillis()
     }
 
 }
